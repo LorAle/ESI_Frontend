@@ -1,0 +1,17 @@
+.footer{
+    min-height:40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.logo{
+    background: url(../assets/icons/Logo.png);
+    background-size: cover;
+    -webkit-background-size: cover;
+    min-width: 30px;
+    min-height: 30px;
+}
+
+mat-sidenav{
+    min-width: 200px;
+}
