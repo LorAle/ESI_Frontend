@@ -5,19 +5,21 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomInterceptor } from './interceptors/credentials.interceptor';
 
 @NgModule({
+    declarations: [
+    ],
     imports: [
 
     ],
     exports: [
-        ProductionService
+
     ],
     providers: [
         ProductionService,
-        // {
-        //     provide: HTTP_INTERCEPTORS,
-        //     useClass: CustomInterceptor,
-        //     multi: true
-        // }
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: CustomInterceptor,
+            multi: true
+        }
     ]
 })
-export class SharedModule { }
+export class CoreModule { }

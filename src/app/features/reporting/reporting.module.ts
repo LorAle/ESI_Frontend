@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ReportingRoutingModule } from './reporting-routing.module';
 import { KeyFiguresComponent } from './containers';
+import { SharedModule } from '../../shared/shared.module';
+import { CoreModule } from '../../core/core.module';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +13,9 @@ import { KeyFiguresComponent } from './containers';
   ],
   imports: [
     CommonModule,
-    ReportingRoutingModule
+    ReportingRoutingModule,
+    SharedModule,
+    CoreModule
   ]
 })
 export class ReportingModule { }

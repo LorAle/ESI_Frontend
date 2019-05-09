@@ -1,3 +1,11 @@
-<p>
-  home works!
-</p>
+<div fxFill fxLayout="row wrap" fxLayoutAlign="center center">
+    <div fxLayoutAlign="center center" *ngFor="let card of cards">
+        <mat-card class="sub-card" fxLayoutAlign="start center" [ngStyle]="{'background': card.color}">
+          <mat-icon class="sub-card-icon">{{card.icon}}</mat-icon>
+        </mat-card>
+      
+        <mat-card class="over-card" fxLayoutAlign="center center">
+          <span class="over-card-title">{{card.title}}</span>
+        </mat-card>
+      </div>
+</div>
