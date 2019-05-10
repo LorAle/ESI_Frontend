@@ -5,17 +5,19 @@ import { VisualisationRoutingModule } from './visualisation-routing.module';
 import { ProductionMonitoringComponent, ProductionOrderOverviewComponent } from './containers';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModule } from 'src/app/core/core.module';
+import { ProductionOrderTableComponent } from './components';
 
 @NgModule({
   declarations: [
     ProductionMonitoringComponent,
-    ProductionOrderOverviewComponent
+    ProductionOrderOverviewComponent,
+    ProductionOrderTableComponent
   ],
   imports: [
     CommonModule,
-    VisualisationRoutingModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    VisualisationRoutingModule,
   ],
 })
 export class VisualisationModule { }

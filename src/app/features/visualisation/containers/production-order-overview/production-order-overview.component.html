@@ -1,3 +1,25 @@
-<p>
-  production-order-overview works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Fertigungsaufträge</mat-card-title>
+    <mat-card-subtitle>Hier können Sie die Fertigungsaufträge einsehen, welche innerhalb des ausgewählten Zeitraums
+      liegen</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div fxLayout="row">
+      <mat-form-field [ngStyle]="{'margin-right': '10px'}">
+        <input name="start" matInput [matDatepicker]="startDatePicker" placeholder="Choose a start date">
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="end" matInput [matDatepicker]="endDatePicker" placeholder="Choose a end date" [(ngModel)]="endDate">
+        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <esi-production-order-table [data]="data" [columns]="displayedColumns"></esi-production-order-table>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Ok</button>
+  </mat-card-actions>
+</mat-card>
