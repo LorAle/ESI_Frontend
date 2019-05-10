@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { VisualisationRoutingModule } from './visualisation-routing.module';
-import { ProductionMonitoringComponent, ProductionOrderOverviewComponent } from './containers';
+import { ProductionMonitoringComponent, ProductionOrderOverviewComponent, OrderPlanningComponent } from './containers';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CoreModule } from 'src/app/core/core.module';
 import { ProductionOrderTableComponent } from './components';
@@ -11,7 +11,8 @@ import { ProductionOrderTableComponent } from './components';
   declarations: [
     ProductionMonitoringComponent,
     ProductionOrderOverviewComponent,
-    ProductionOrderTableComponent
+    ProductionOrderTableComponent,
+    OrderPlanningComponent
   ],
   imports: [
     CommonModule,

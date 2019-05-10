@@ -3,21 +3,25 @@ import { ProductionOrderModel } from 'src/app/models/production-order-model';
 import { PRODCUTION_ORDERS } from '../../mock-data/data';
 
 @Component({
-  selector: 'esi-production-monitoring',
-  templateUrl: './production-monitoring.component.html',
-  styleUrls: ['./production-monitoring.component.scss']
+  selector: 'esi-order-planning',
+  templateUrl: './order-planning.component.html',
+  styleUrls: ['./order-planning.component.scss']
 })
-export class ProductionMonitoringComponent implements OnInit {
+export class OrderPlanningComponent implements OnInit {
 
   data: ProductionOrderModel[];
-
   displayedColumns: string[] = ['orderNumber', 'orderDate', 'deliveryDate', 'color', 'amount', 'itemPosition', 'productionStatusId'];
 
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  orderPlanning() {
     const deliveryDate = new Date();
-    this.data = PRODCUTION_ORDERS.filter(x => x.productionStatusId === 1);
+    deliveryDate.setDate(deliveryDate.getDate() + 10)
+    this.data = PRODCUTION_ORDERS;
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductionOrderModel } from 'src/app/models/production-order-model';
+import { PRODCUTION_ORDERS } from '../../mock-data/data';
 
 @Component({
   selector: 'esi-production-order-overview',
@@ -17,23 +18,7 @@ export class ProductionOrderOverviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const deliveryDate = new Date();
-    deliveryDate.setDate(deliveryDate.getDate() + 10)
-    this.data = [
-      {
-        orderNumber: 'C-20170327-90125',
-        customerOrderId: 1,
-        orderDate: new Date(),
-        deliveryDate: deliveryDate,
-        materialId: 1,
-        color: 'blue',
-        motivId: 1,
-        amount: 2,
-        itemPostition: 1,
-        sequencePostition: 1,
-        productionStatusId: 2
-      },
-    ];
+    this.data = PRODCUTION_ORDERS;
     this.endDate = new Date();
   }
 

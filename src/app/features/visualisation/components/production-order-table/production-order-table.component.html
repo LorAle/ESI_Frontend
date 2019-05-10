@@ -33,7 +33,11 @@
 
   <ng-container matColumnDef="productionStatusId">
     <th mat-header-cell *matHeaderCellDef> Status </th>
-    <td mat-cell *matCellDef="let element"> {{element.productionStatusId}} </td>
+    <td mat-cell *matCellDef="let element">
+      <div *ngIf="element.productionStatusId === 1" [ngStyle]="{'background': 'yellow', 'height':'25px', 'width':'25px', 'border-radius':'50%'}"></div>
+      <div *ngIf="element.productionStatusId === 2" [ngStyle]="{'background': 'green', 'height':'25px', 'width':'25px', 'border-radius':'50%'}"></div>
+      <div *ngIf="element.productionStatusId === 3" [ngStyle]="{'background': 'red', 'height':'25px', 'width':'25px', 'border-radius':'50%'}"></div>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
