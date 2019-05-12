@@ -1,6 +1,32 @@
 <mat-sidenav-container fullscreen>
     <mat-sidenav #sidenav mode="over">
-        Menu
+        <div class="nav-caption">Menü</div>
+        <mat-nav-list>
+            <a mat-list-item routerLink="#" (click)="onSidenavClose()">
+                <img class="img-side-nav" src="../assets/images/u12.png">
+                <span class="nav-item">Produktionsüberwachung</span>
+            </a>
+            <a mat-list-item routerLink="#" (click)="onSidenavClose()">
+                <img class="img-side-nav" src="../assets/images/u13.png">
+                <span class="nav-item">Verwaltung</span>
+            </a>
+            <a mat-list-item routerLink="#" (click)="onSidenavClose()">
+                <img class="img-side-nav" src="../assets/images/u14.png">
+                <span class="nav-item">Qualitätsdaten</span>
+            </a>
+            <a mat-list-item routerLink="#" (click)="onSidenavClose()">
+                <img class="img-side-nav" src="../assets/images/u11.png">
+                <span class="nav-item">Fertigungsaufträge</span>
+            </a>
+            <a mat-list-item routerLink="#" (click)="onSidenavClose()">
+                <i class="material-icons img-side-nav">today</i>
+                <span class="nav-item">Auftragsplanung</span>
+            </a>
+            <a mat-list-item routerLink="#" (click)="onSidenavClose()">
+                <img class="img-side-nav" src="../assets/images/u40.png">
+                <span class="nav-item">Abmelden</span>
+            </a>
+        </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
         <div fxFill fxLayout="column">
@@ -15,16 +41,16 @@
                             </button>
                         </div>
                         <div fxFlex="10%">
-                            <button mat-button>
+                            <a mat-button routerLink="/home">
                                 <i class="material-icons">
                                     home
                                 </i>
-                            </button>
-                            <button mat-button>
+                            </a>
+                            <a mat-button routerLink="#">
                                 <i class="material-icons">
                                     account_circle
                                 </i>
-                            </button>
+                            </a>
                         </div>
                     </mat-toolbar-row>
                 </mat-toolbar>
