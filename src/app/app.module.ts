@@ -8,6 +8,7 @@ import { ProductionService } from './services/production.service';
 import { CustomInterceptor } from './interceptors/credentials.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    [MatButtonModule, MatCheckboxModule],
     SharedModule
   ],
   providers: [

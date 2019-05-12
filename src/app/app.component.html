@@ -1,21 +1,48 @@
 <mat-sidenav-container fullscreen>
-  <mat-sidenav #sidenav mode="over">
-    Sidenav content
-  </mat-sidenav>
-  <mat-sidenav-content>
-  <div fxFill fxLayout="column">
-    <div class="header">
-      <mat-toolbar color="primary">
-        <mat-toolbar-row>
-          <button (click)="sidenav.toggle()">Toggle</button>
-          <span>Header</span>
-        </mat-toolbar-row>
-      </mat-toolbar>
-    </div>
-    <div fxFlex><router-outlet></router-outlet></div>
-    <div>Footer</div>
-  </div>
-  </mat-sidenav-content>
+    <mat-sidenav #sidenav mode="over">
+        Menu
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div fxFill fxLayout="column">
+            <div class="header">
+                <mat-toolbar>
+                    <mat-toolbar-row>
+                        <div fxFlex="90%">
+                            <button (click)="sidenav.toggle()" mat-button>
+                                <i class="material-icons">
+                                    menu
+                                </i>
+                            </button>
+                        </div>
+                        <div fxFlex="10%">
+                            <button mat-button>
+                                <i class="material-icons">
+                                    home
+                                </i>
+                            </button>
+                            <button mat-button>
+                                <i class="material-icons">
+                                    account_circle
+                                </i>
+                            </button>
+                        </div>
+                    </mat-toolbar-row>
+                </mat-toolbar>
+            </div>
+            <div fxFlex>
+                <router-outlet></router-outlet>
+            </div>
+            <div class="footer">
+                <mat-toolbar>
+                    <mat-toolbar-row>
+                        <div fxFlex="80%">Entwickelt durch Produktionsteam HS-Offenburg</div>
+                        <div class="company" fxFlex="20%">
+                            <img fxFlex class="img-footer" src="../assets/images/Logo.svg">
+                            <div fxFlex class="footer-company">YourShirt GmbH</div>
+                        </div>
+                    </mat-toolbar-row>
+                </mat-toolbar>
+            </div>
+        </div>
+    </mat-sidenav-content>
 </mat-sidenav-container>
-
-
