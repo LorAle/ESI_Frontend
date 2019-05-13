@@ -7,7 +7,7 @@ export class ProductionOrderModel{
     motiv: string;
     amount: number;
     orderItem: number;
-    orderPostition: number;
+    orderPosition: number;
     productionStatusId: number;
 }
 
@@ -19,6 +19,6 @@ export class ProductionOrderFormModel{
     motiv: string;
     amount: number;
     orderItem: number;
-    orderPostition: number;
+    orderPosition: number;
     productionStatusId: number;
 }

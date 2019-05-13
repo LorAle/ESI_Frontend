@@ -13,7 +13,7 @@ export const PRODCUTION_ORDERS: ProductionOrderModel[] = [
         color: 'blue',
         motiv: "test",
         amount: 2,
-        orderPostition: 1,
+        orderPosition: 1,
         productionStatusId: 1
     },
     {
@@ -25,7 +25,7 @@ export const PRODCUTION_ORDERS: ProductionOrderModel[] = [
         color: 'red',
         motiv: "test2",
         amount: 15,
-        orderPostition: 2,
+        orderPosition: 2,
         productionStatusId: 2
     },
     {
@@ -37,7 +37,7 @@ export const PRODCUTION_ORDERS: ProductionOrderModel[] = [
         color: 'yellow',
         motiv: "test3",
         amount: 15,
-        orderPostition: 3,
+        orderPosition: 3,
         productionStatusId: 3
     }
 ]

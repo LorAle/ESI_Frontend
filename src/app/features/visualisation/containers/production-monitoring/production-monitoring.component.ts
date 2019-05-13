@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductionOrderModel } from 'src/app/models/production-order-model';
 import { PRODCUTION_ORDERS } from '../../mock-data/data';
+import { Observable } from 'rxjs';
+import { ProductionStatusModel } from 'src/app/models/production-status-model';
+import { ProductionService } from 'src/app/core/services';
 
 @Component({
   selector: 'esi-production-monitoring',
@@ -10,10 +13,12 @@ import { PRODCUTION_ORDERS } from '../../mock-data/data';
 export class ProductionMonitoringComponent implements OnInit {
 
   data: ProductionOrderModel[];
+  displayedColumns: string[] = ['customerOrderId', 'orderDate', 'deliveryDate', 'color', 'amount', 'orderItem', 'orderPosition', 'productionStatusId'];
+  status$: Observable<ProductionStatusModel[]>;
 
-  displayedColumns: string[] = ['orderNumber', 'orderDate', 'deliveryDate', 'color', 'amount', 'itemPosition', 'productionStatusId'];
-
-  constructor() { }
+  constructor(
+    private _prodService: ProductionService
+  ) { }
 
   ngOnInit() {
     const deliveryDate = new Date();

@@ -1,10 +1,9 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!-- Columns -->
-  <!-- <ng-container matColumnDef="orderNumber">
-    <th mat-header-cell *matHeaderCellDef> Fertigungsauftragsnummer </th>
-    <td mat-cell *matCellDef="let element"> {{element.orderNumber}} </td>
-  </ng-container> -->
+  <ng-container matColumnDef="customerOrderId">
+    <th mat-header-cell *matHeaderCellDef> Kundenauftragsnummer </th>
+    <td mat-cell *matCellDef="let element"> {{element.customerOrderId}} </td>
+  </ng-container>
 
   <ng-container matColumnDef="orderDate">
     <th mat-header-cell *matHeaderCellDef> Bestelldatum </th>
@@ -26,9 +25,14 @@
     <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="itemPosition">
+  <ng-container matColumnDef="orderItem">
+    <th mat-header-cell *matHeaderCellDef> Positionsnummer </th>
+    <td mat-cell *matCellDef="let element"> {{element.orderItem}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="orderPosition">
     <th mat-header-cell *matHeaderCellDef> Sortierungsnummer </th>
-    <td mat-cell *matCellDef="let element"> {{element.orderPostition}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.orderPosition}} </td>
   </ng-container>
 
   <ng-container matColumnDef="productionStatusId">

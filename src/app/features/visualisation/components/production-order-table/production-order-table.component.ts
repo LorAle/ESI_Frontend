@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ProductionStatusModel } from 'src/app/models/production-status-model';
 
 @Component({
   selector: 'esi-production-order-table',
@@ -12,6 +13,9 @@ export class ProductionOrderTableComponent implements OnInit {
 
   @Input('columns')
   displayedColumns: string[];
+
+  @Input('status')
+  orderStatus: ProductionStatusModel[];
 
   constructor() { }
 

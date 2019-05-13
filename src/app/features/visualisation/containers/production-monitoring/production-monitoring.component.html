@@ -4,6 +4,6 @@
     <mat-card-subtitle>Hier können Sie die aktuell geplanten Produktionsaufträge in der Reihenfolge ihrer Fertigung einsehen</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <esi-production-order-table [data]="data" [columns]="displayedColumns"></esi-production-order-table>
+    <esi-production-order-table [data]="data" [columns]="displayedColumns" [status]="status$ | async"></esi-production-order-table>
   </mat-card-content>
 </mat-card>
