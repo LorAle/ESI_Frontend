@@ -1,6 +1,6 @@
 
 import { NgModule } from '@angular/core';
-import { ProductionService } from './services';
+import { ProductionService, MawiService, VeveService } from './services';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomInterceptor } from './interceptors/credentials.interceptor';
 
@@ -15,6 +15,8 @@ import { CustomInterceptor } from './interceptors/credentials.interceptor';
     ],
     providers: [
         ProductionService,
+        MawiService,
+        VeveService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: CustomInterceptor,

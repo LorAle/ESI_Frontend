@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductionOrderModel } from 'src/app/models/production-order-model';
+import { ProductionOrderModel, ProductionStatusModel } from 'src/app/models';
 import { PRODCUTION_ORDERS } from '../../mock-data/data';
 import { Observable } from 'rxjs';
-import { ProductionStatusModel } from 'src/app/models/production-status-model';
 import { ProductionService } from 'src/app/core/services';
 
 @Component({

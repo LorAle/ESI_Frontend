@@ -1,4 +1,4 @@
-import { ProductionOrderModel } from "src/app/models/production-order-model";
+import { ProductionOrderModel } from "src/app/models";
 
 const deliveryDate = new Date();
 deliveryDate.setDate(deliveryDate.getDate() + 10)

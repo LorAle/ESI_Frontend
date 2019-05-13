@@ -12,7 +12,6 @@ import { ProductionStatusModel } from 'src/app/models/production-status-model';
 export class ProductionService {
 
   baseUrl: string;
-  prodConUrl: string;
 
   constructor(
     private _http: HttpClient
