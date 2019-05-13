@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { PRODCUTION_ORDERS } from 'src/app/features/visualisation/mock-data/data';
+import { ProductionOrderModel, ProductionOrderFormModel } from 'src/app/models/production-order-model';
+import { ProductionStatusModel } from 'src/app/models/production-status-model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +12,39 @@ import { PRODCUTION_ORDERS } from 'src/app/features/visualisation/mock-data/data
 export class ProductionService {
 
   baseUrl: string;
+  prodConUrl: string;
 
   constructor(
     private _http: HttpClient
   ) {
-    this.baseUrl = environment.baseUrl;
+    this.baseUrl = environment.baseUrl + '/prod';
   }
 
   jsonHeader(){
     return new HttpHeaders({ 'Content-Type': 'application/json' });
   }
 
-  getProducts(): Observable<any[]> {
-    return this._http.get<any[]>(this.baseUrl + `/prod`);
+  getProductionOrders(): Observable<ProductionOrderModel[]> {
+    return this._http.get<ProductionOrderModel[]>(this.baseUrl);
   }
 
-  createProduct() {
-    return this._http.post<any>(this.baseUrl + `/prod`, JSON.stringify(PRODCUTION_ORDERS[1]), {
+  createProductionOrder(data: ProductionOrderFormModel): Observable<ProductionOrderModel> {
+    return this._http.post<ProductionOrderModel>(this.baseUrl, JSON.stringify(PRODCUTION_ORDERS[1]), {
       headers: this.jsonHeader()
     });
+  }
+
+  updateProductionOrder(orderId: number, data: ProductionOrderFormModel): Observable<boolean> {
+    return this._http.put<boolean>(this.baseUrl + `${orderId}`, JSON.stringify(PRODCUTION_ORDERS[1]), {
+      headers: this.jsonHeader()
+    });
+  }
+
+  deleteProductionOrder(orderId: number): Observable<boolean> {
+    return this._http.delete<boolean>(this.baseUrl + `${orderId}`);
+  }
+
+  getProductionStatus(): Observable<ProductionStatusModel[]>{
+    return this._http.get<ProductionStatusModel[]>(this.baseUrl + `/status`);
   }
 }

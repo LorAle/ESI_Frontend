@@ -19,9 +19,9 @@ export class AppComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this._service.createProduct().subscribe(x => {
-      console.log(x)
-    });
+    // this._service.createProduct().subscribe(x => {
+    //   console.log(x)
+    // });
     this.registerImages();
   }
 
