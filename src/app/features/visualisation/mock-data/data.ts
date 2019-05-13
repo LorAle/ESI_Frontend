@@ -5,42 +5,39 @@ deliveryDate.setDate(deliveryDate.getDate() + 10)
 
 export const PRODCUTION_ORDERS: ProductionOrderModel[] = [
     {
-        orderNumber: 'C-20170327-90125',
+        id: 1,
+        orderItem: 1,
         customerOrderId: 1,
         orderDate: new Date(),
         deliveryDate: deliveryDate,
-        materialId: 1,
         color: 'blue',
-        motivId: 1,
+        motiv: "test",
         amount: 2,
-        itemPostition: 1,
-        sequencePostition: 1,
+        orderPostition: 1,
         productionStatusId: 1
     },
     {
-        orderNumber: 'B-20170327-80',
+        id: 2,
+        orderItem: 2,
         customerOrderId: 2,
         orderDate: new Date(),
         deliveryDate: deliveryDate,
-        materialId: 1,
         color: 'red',
-        motivId: 2,
+        motiv: "test2",
         amount: 15,
-        itemPostition: 1,
-        sequencePostition: 2,
+        orderPostition: 2,
         productionStatusId: 2
     },
     {
-        orderNumber: 'B-20170327-79',
+        id: 3,
+        orderItem: 3,
         customerOrderId: 3,
         orderDate: new Date(),
         deliveryDate: deliveryDate,
-        materialId: 1,
         color: 'yellow',
-        motivId: 1,
-        amount: 100,
-        itemPostition: 1,
-        sequencePostition: 3,
+        motiv: "test3",
+        amount: 15,
+        orderPostition: 3,
         productionStatusId: 3
     }
 ]
