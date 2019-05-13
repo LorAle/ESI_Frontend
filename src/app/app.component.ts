@@ -19,9 +19,9 @@ export class AppComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this._service.getProducts().subscribe(x => {
-      console.log(x)
-    });
+    // this._service.getProducts().subscribe(x => {
+    //   console.log(x)
+    // });
     this.registerImages();
   }
 
@@ -29,8 +29,8 @@ export class AppComponent implements OnInit {
 
   registerImages(){
     this._matIconRegistry.addSvgIcon(
-      "assets:logo",
-      this._domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/Logo.png")
+      "brandLogo",
+      this._domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/Logo.svg")
     );
   }
 }
