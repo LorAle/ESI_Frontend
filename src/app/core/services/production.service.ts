@@ -26,7 +26,6 @@ export class ProductionService {
   }
 
   createProduct() {
-    const header = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this._http.post<any>(this.baseUrl + `/prod`, JSON.stringify(PRODCUTION_ORDERS[1]), {
       headers: this.jsonHeader()
     });
