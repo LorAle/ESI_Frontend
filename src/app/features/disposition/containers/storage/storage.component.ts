@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import {MatSelectionList} from '@angular/material';
-import {MatInputModule} from '@angular/material/input';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl} from '@angular/forms';
 
 @Component({
   selector: 'esi-storage',
