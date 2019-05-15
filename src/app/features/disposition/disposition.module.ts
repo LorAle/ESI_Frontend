@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { DispositionRoutingModule } from './disposition-routing.module';
 import { DispositionComponent } from './components/disposition/disposition.component';
@@ -16,6 +17,7 @@ import { StorageComponent } from './containers/storage/storage.component';
     CommonModule,
     SharedModule,
     MatCheckboxModule,
+    ReactiveFormsModule,
     CoreModule
   ]
 })
