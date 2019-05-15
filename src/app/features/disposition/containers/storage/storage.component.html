@@ -1,3 +1,44 @@
-<p>
-  storage works!
-</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Einlagerung</mat-card-title>
+        <mat-card-subtitle>Hier können Sie die Einlagerung durch die Materialwirtschaft veranlassen</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card fxFlex="50%" class="child-card">
+            <mat-card-header>
+                <mat-card-title>Farbe einlagern</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h3>Farbe:</h3>
+                <button mat-raised-button color="secondary" class="change-button text-sm" (click)="selectAll()">
+                  Alle
+                </button>
+                <button mat-raised-button color="secondary" class="change-button text-sm" (click)="unSelectAll()">
+                    Keine
+                  </button>
+                <mat-selection-list [(ngModel)]="selectedValue" #colors (selectionChange)="onSelectionChange()">
+                    <mat-list-option *ngFor="let color of typesOfColors" [value]="color">
+                        {{color}}
+                    </mat-list-option>
+                </mat-selection-list>
+                <p>
+                    Colors selected: {{colors.selectedOptions.selected.length}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="farbeEinlagern()">Einlagern</button>
+            </mat-card-actions>
+        </mat-card>
+        <mat-card fxFlex="50%" class="child-card">
+            <mat-card-header>
+                <mat-card-title>Fertige T-Shirts einlagern</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="tshirtsEinlagern()">Einlagern</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-card-content>
+</mat-card>

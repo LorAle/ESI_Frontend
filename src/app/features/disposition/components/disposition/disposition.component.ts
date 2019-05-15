@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 export class DispositionComponent implements OnInit {
 
   cards: { title: string, icon: string, color: string, route: string }[] = [
-    { title: 'Bestellung', icon: 'format_list_numbered', color: 'lightblue', route: 'disposition/order' },
-    { title: 'Einlagerung', icon: 'format_list_numbered', color: 'lightyellow', route: 'disposition/storage' },
+    { title: 'Bestellung', icon: 'shopping_cart', color: 'lightblue', route: 'disposition/order' },
+    { title: 'Einlagerung', icon: 'storage', color: 'lightyellow', route: 'disposition/storage' },
   ]
 
   constructor(

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { DispositionRoutingModule } from './disposition-routing.module';
 import { DispositionComponent } from './components/disposition/disposition.component';
@@ -14,6 +15,7 @@ import { StorageComponent } from './containers/storage/storage.component';
     DispositionRoutingModule,
     CommonModule,
     SharedModule,
+    MatCheckboxModule,
     CoreModule
   ]
 })
