@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import {MatSelectionList} from '@angular/material';
-import { NgModel } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'esi-storage',
@@ -12,6 +13,10 @@ export class StorageComponent implements OnInit {
   @ViewChild('colors') colorsSelectionList: MatSelectionList;
   typesOfColors: string[] = ['Cyan', 'Magenta', 'Yellow', 'Key'];
   selectedValue: any[];
+  comment = new FormControl();
+  countOfShirts = new FormControl();
+  auftrag= new FormControl();
+
 
   constructor() { }
 
@@ -51,7 +56,7 @@ export class StorageComponent implements OnInit {
   }
 
   tshirtsEinlagern(){
-    
+    alert("Auftrag: "+this.auftrag.value+", Anzahl: "+this.countOfShirts.value+", Bemerkung: "+this.comment.value);
   }
 
 }

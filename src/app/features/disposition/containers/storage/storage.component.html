@@ -34,7 +34,19 @@
                 <mat-card-title>Fertige T-Shirts einlagern</mat-card-title>
             </mat-card-header>
             <mat-card-content>
+                <form class="form">
+                    <mat-form-field class="form-number">
+                        <input matInput placeholder="Auftragsnummer" value="">
+                    </mat-form-field>
 
+                    <mat-form-field class="form-count">
+                        <input matInput type="number" placeholder="Anzahl" value="">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <textarea matInput placeholder="Bemerkung"></textarea>
+                    </mat-form-field>
+                </form>
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button color="primary" (click)="tshirtsEinlagern()">Einlagern</button>
