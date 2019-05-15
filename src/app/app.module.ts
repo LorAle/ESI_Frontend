@@ -13,7 +13,7 @@ import { PageNotFoundComponent } from './features/landing/components/page-not-fo
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

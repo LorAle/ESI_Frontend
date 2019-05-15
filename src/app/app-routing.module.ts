@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'configuration', loadChildren: './features/configuration/configuration.module#ConfigurationModule' },
   { path: 'reporting', loadChildren: './features/reporting/reporting.module#ReportingModule' },
   { path: 'authentification', loadChildren: './features/authentification/authentification.module#AuthentificationModule' },
+  { path: 'disposition', loadChildren: './features/disposition/disposition.module#DispositionModule' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

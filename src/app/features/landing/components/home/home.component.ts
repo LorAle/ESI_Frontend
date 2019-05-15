@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
     { title: 'Produktions-überwachung', icon: 'format_list_numbered', color: 'lightblue', route: 'visualisation/monitoring' },
     { title: 'Fertigungs-aufträge', icon: 'format_color_fill', color: 'lightgreen', route: 'visualisation/orders' },
     { title: 'Auftragsplanung', icon: 'timeline', color: 'lightyellow', route: 'visualisation/plan' },
+    { title: 'Materialverwaltung', icon: 'storage', color: 'lightblue', route: 'disposition/disposition' },
     { title: 'Kennzahlen', icon: 'insert_chart', color: 'lightsalmon', route: 'reporting/keyfigures' }
   ]
 
