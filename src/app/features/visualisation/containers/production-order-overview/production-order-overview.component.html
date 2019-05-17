@@ -7,7 +7,7 @@
   <mat-card-content>
     <div fxLayout="row">
       <mat-form-field [ngStyle]="{'margin-right': '10px'}">
-        <input name="start" matInput [matDatepicker]="startDatePicker" placeholder="Choose a start date">
+        <input name="start" matInput [matDatepicker]="startDatePicker" placeholder="Choose a start date" [(ngModel)]="startDate">
         <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #startDatePicker></mat-datepicker>
       </mat-form-field>

@@ -14,6 +14,7 @@ export class ProductionOrderOverviewComponent implements OnInit {
   data: Observable<ProductionOrderModel[]>;
   displayedColumns: string[] = ['CustomerOrderId', 'OrderDate', 'DeliveryDate', 'Color', 'Amount', 'OrderItem', 'OrderPosition', 'ProductionStatusId'];
   endDate: Date;
+  startDate: Date;
   status$: BehaviorSubject<ProductionStatusModel[]> = new BehaviorSubject<ProductionStatusModel[]>([]);
 
   constructor(
@@ -21,7 +22,8 @@ export class ProductionOrderOverviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.startDate = new Date();
+    this.endDate = new Date();
     this._prodService.getProductionStatus().subscribe(x => {
       this.status$.next(x);
       console.log(x);
