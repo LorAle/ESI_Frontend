@@ -1,23 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { ReactiveFormsModule } from '@angular/forms';
-
 import { DispositionRoutingModule } from './disposition-routing.module';
-import { DispositionComponent } from './components/disposition/disposition.component';
+import { DispositionComponent } from './components';
 import { SharedModule } from '../../shared/shared.module';
 import { CoreModule } from '../../core/core.module';
-import { OrderComponent } from './containers/order/order.component';
-import { StorageComponent } from './containers/storage/storage.component';
+import { OrderComponent, StorageComponent } from './containers';
 
 @NgModule({
-  declarations: [DispositionComponent, OrderComponent, StorageComponent],
+  declarations: [
+    DispositionComponent, OrderComponent, StorageComponent
+  ],
   imports: [
     DispositionRoutingModule,
     CommonModule,
     SharedModule,
-    MatCheckboxModule,
-    ReactiveFormsModule,
     CoreModule
   ]
 })

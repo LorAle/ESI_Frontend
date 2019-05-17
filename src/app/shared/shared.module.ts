@@ -1,12 +1,12 @@
 
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Material Modules
 import {
   MatButtonModule, MatCardModule, MatIconModule, MatListModule,
   MatToolbarModule, MatSidenavModule, MatTableModule, MatDatepickerModule,
-  MatFormFieldModule, MatNativeDateModule, MatInputModule
+  MatFormFieldModule, MatNativeDateModule, MatInputModule, MatCheckboxModule, MatTooltipModule
 } from '@angular/material';
 
 //FlexLayout Modules
@@ -28,7 +28,8 @@ import { CovalentTooltipEchartsModule } from '@covalent/echarts/tooltip';
 const MATERIAL_MODULES = [
   MatButtonModule, MatCardModule, MatIconModule, MatListModule,
   MatToolbarModule, MatSidenavModule, MatTableModule, MatDatepickerModule,
-  MatFormFieldModule, MatNativeDateModule, MatInputModule
+  MatFormFieldModule, MatNativeDateModule, MatInputModule, MatCheckboxModule,
+  MatTooltipModule
 ]
 
 const COVALENT_MODULES = [
@@ -44,12 +45,14 @@ const COVALENT_MODULES = [
     MATERIAL_MODULES,
     COVALENT_MODULES,
     FlexLayoutModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   exports: [
     MATERIAL_MODULES,
     COVALENT_MODULES,
     FlexLayoutModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [

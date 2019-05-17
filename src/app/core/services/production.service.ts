@@ -34,13 +34,13 @@ export class ProductionService {
   }
 
   updateProductionOrder(orderId: number, data: ProductionOrderFormModel): Observable<boolean> {
-    return this._http.put<boolean>(this.baseUrl + `${orderId}`, JSON.stringify(PRODCUTION_ORDERS[1]), {
+    return this._http.put<boolean>(this.baseUrl + `/${orderId}`, JSON.stringify(PRODCUTION_ORDERS[1]), {
       headers: this.jsonHeader()
     });
   }
 
   deleteProductionOrder(orderId: number): Observable<boolean> {
-    return this._http.delete<boolean>(this.baseUrl + `${orderId}`);
+    return this._http.delete<boolean>(this.baseUrl + `/${orderId}`);
   }
 
   getProductionStatus(): Observable<ProductionStatusModel[]>{
