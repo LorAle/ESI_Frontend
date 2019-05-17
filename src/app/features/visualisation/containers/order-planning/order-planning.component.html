@@ -4,7 +4,7 @@
     <mat-card-subtitle>Hier können Sie die Sortierung der noch offenen Fertigungsaufträge veranlassen</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <esi-production-order-table *ngIf="data" [data]="data" [columns]="displayedColumns" [status]="status$ | async"></esi-production-order-table>
+    <esi-production-order-table *ngIf="data" [data]="data | async" [columns]="displayedColumns" [status]="status$ | async"></esi-production-order-table>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="orderPlanning()">Auträge sortieren <mat-icon>autorenew</mat-icon></button>

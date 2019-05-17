@@ -46,4 +46,10 @@ export class ProductionService {
   getProductionStatus(): Observable<ProductionStatusModel[]>{
     return this._http.get<ProductionStatusModel[]>(this.baseUrl + `/status`);
   }
+
+  sortProductionOrders(): Observable<ProductionOrderModel[]> {
+    return this._http.put<ProductionOrderModel[]>(this.baseUrl + `/order`, {
+      headers: this.jsonHeader()
+    })
+  }
 }

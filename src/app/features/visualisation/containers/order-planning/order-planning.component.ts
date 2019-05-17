@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductionOrderModel, ProductionStatusModel } from 'src/app/models';
 import { PRODCUTION_ORDERS } from '../../mock-data/data';
 import { ProductionService } from 'src/app/core/services';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'esi-order-planning',
@@ -11,8 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class OrderPlanningComponent implements OnInit {
 
-  data: ProductionOrderModel[];
-  displayedColumns: string[] = ['customerOrderId', 'orderDate', 'deliveryDate', 'color', 'amount', 'orderItem', 'orderPosition', 'productionStatusId'];
+  data: Observable<ProductionOrderModel[]>;
+  displayedColumns: string[] = ['CustomerOrderId', 'OrderDate', 'DeliveryDate', 'Color', 'Amount', 'OrderItem', 'OrderPosition', 'ProductionStatusId'];
   status$: Observable<ProductionStatusModel[]>;
 
   constructor(
@@ -26,7 +26,8 @@ export class OrderPlanningComponent implements OnInit {
   orderPlanning() {
     const deliveryDate = new Date();
     deliveryDate.setDate(deliveryDate.getDate() + 10)
-    this.data = PRODCUTION_ORDERS;
+    this.data = this._prodService.sortProductionOrders();
+    // this.data = of(PRODCUTION_ORDERS);
   }
 
 }

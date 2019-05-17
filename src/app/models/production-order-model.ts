@@ -1,24 +1,24 @@
 export class ProductionOrderModel{
-    id: number;
-    customerOrderId: number;
-    orderDate: Date;
-    deliveryDate: Date;
-    color: string;
-    motiv: string;
-    amount: number;
-    orderItem: number;
-    orderPosition: number;
-    productionStatusId: number;
+    Id: number;
+    CustomerOrderId: number;
+    OrderDate: Date;
+    DeliveryDate: Date;
+    Color: string;
+    Motiv: string;
+    Amount: number;
+    OrderItem: number;
+    OrderPosition: number;
+    ProductionStatusId: number;
 }
 
 export class ProductionOrderFormModel{
-    customerOrderId: number;
-    orderDate: Date;
-    deliveryDate: Date;
-    color: string;
-    motiv: string;
-    amount: number;
-    orderItem: number;
-    orderPosition: number;
-    productionStatusId: number;
+    CustomerOrderId: number;
+    OrderDate: Date;
+    DeliveryDate: Date;
+    Color: string;
+    Motiv: string;
+    Amount: number;
+    OrderItem: number;
+    OrderPosition: number;
+    ProductionStatusId: number;
 }
