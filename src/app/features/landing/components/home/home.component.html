@@ -1,4 +1,4 @@
-<div fxFill fxLayout="row wrap" fxLayoutAlign="center center" >
+<div fxFill fxLayout="row wrap" fxLayoutAlign="center center" class="custom-card">
     <div fxLayoutAlign="center center" *ngFor="let card of cards" (click)="navigate(card.route)">
         <mat-card class="sub-card" fxLayoutAlign="start center" [ngStyle]="{'background': card.color}">
           <mat-icon class="sub-card-icon">{{card.icon}}</mat-icon>
