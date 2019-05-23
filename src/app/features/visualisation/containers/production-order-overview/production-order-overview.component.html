@@ -18,6 +18,6 @@
       </mat-form-field>
       <button mat-icon-button><mat-icon>autorenew</mat-icon></button>
     </div>
-    <esi-production-order-table [data]="data | async" [columns]="displayedColumns" [status]="status$ | async"></esi-production-order-table>
+    <esi-production-order-table [data]="data | async" [columns]="displayedColumns" [status]="status$ | async" [showAll]="showAll"></esi-production-order-table>
   </mat-card-content>
 </mat-card>

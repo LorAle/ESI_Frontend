@@ -12,10 +12,11 @@ import { ProductionService } from 'src/app/core/services';
 export class ProductionOrderOverviewComponent implements OnInit {
 
   data: Observable<ProductionOrderModel[]>;
-  displayedColumns: string[] = ['CustomerOrderId', 'OrderDate', 'DeliveryDate', 'Color', 'Amount', 'OrderItem', 'OrderPosition', 'ProductionStatusId'];
+  displayedColumns: string[] = ['CustomerOrderId', 'OrderDate', 'DeliveryDate', 'Color', 'Amount', 'OrderItem', 'OrderPosition', 'ProductionStatusId', 'Actions'];
   endDate: Date;
   startDate: Date;
   status$: BehaviorSubject<ProductionStatusModel[]> = new BehaviorSubject<ProductionStatusModel[]>([]);
+  showAll = false;
 
   constructor(
     private _prodService: ProductionService

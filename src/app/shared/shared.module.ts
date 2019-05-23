@@ -6,7 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule, MatCardModule, MatIconModule, MatListModule,
   MatToolbarModule, MatSidenavModule, MatTableModule, MatDatepickerModule,
-  MatFormFieldModule, MatNativeDateModule, MatInputModule, MatCheckboxModule, MatTooltipModule
+  MatFormFieldModule, MatNativeDateModule, MatInputModule, MatCheckboxModule, MatTooltipModule,
+  MatDialogModule, MatProgressSpinnerModule
 } from '@angular/material';
 
 //FlexLayout Modules
@@ -29,7 +30,7 @@ const MATERIAL_MODULES = [
   MatButtonModule, MatCardModule, MatIconModule, MatListModule,
   MatToolbarModule, MatSidenavModule, MatTableModule, MatDatepickerModule,
   MatFormFieldModule, MatNativeDateModule, MatInputModule, MatCheckboxModule,
-  MatTooltipModule
+  MatTooltipModule, MatDialogModule, MatProgressSpinnerModule
 ]
 
 const COVALENT_MODULES = [

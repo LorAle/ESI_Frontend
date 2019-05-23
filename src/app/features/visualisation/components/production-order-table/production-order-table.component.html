@@ -46,11 +46,16 @@
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="Actions" *ngIf="displayedColumns.length===9">
+  <ng-container matColumnDef="Actions">
     <th mat-header-cell *matHeaderCellDef> Aktionen </th>
     <td mat-cell *matCellDef="let element">
-      <button mat-icon-button matTooltip="Als 'Fertiggestellt' markieren" (click)="finished(element)">
+      <button mat-icon-button matTooltip="Als 'Fertiggestellt' markieren" (click)="finished(element)" *ngIf="showAll === true">
         <mat-icon [ngStyle]="{'color': 'green'}">check_circle_outline</mat-icon>
+      </button>
+      <button mat-icon-button matTooltip="Weitere Informationen" (click)="openInformationDialog(element)">
+        <mat-icon>
+            info
+        </mat-icon>
       </button>
     </td>
   </ng-container>

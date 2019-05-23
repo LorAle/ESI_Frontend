@@ -15,6 +15,7 @@ export class ProductionMonitoringComponent implements OnInit {
   data: Observable<ProductionOrderModel[]>;
   displayedColumns: string[] = ['CustomerOrderId', 'OrderDate', 'DeliveryDate', 'Color', 'Amount', 'OrderItem', 'OrderPosition', 'ProductionStatusId', 'Actions'];
   status$: Observable<ProductionStatusModel[]>;
+  showAll = true;
 
   constructor(
     private _prodService: ProductionService
