@@ -12,6 +12,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class ProductionOrderDetailDialogComponent implements OnInit {
 
   productionOrder$: Observable<ProductionOrderModel>;
+  icons = ['all_inbox', 'android', 'backup', 'bug_report', 'face', 'fingerprint']
+  selectedIcon: string;
 
   constructor(
     private _prodService: ProductionService,
@@ -27,4 +29,10 @@ export class ProductionOrderDetailDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  getIcon(){
+    if (!this.selectedIcon) {
+      this.selectedIcon = this.icons[Math.floor(Math.random() * this.icons.length)];
+    }  
+    return this.selectedIcon;
+  }
 }

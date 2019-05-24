@@ -48,7 +48,7 @@ export class ProductionService {
   }
 
   getProductionOrder(orderId: number): Observable<ProductionOrderModel> {
-    return this._http.get<ProductionOrderModel>(this.baseUrl + `${orderId}`);
+    return this._http.get<ProductionOrderModel>(this.baseUrl + `/${orderId}`);
   }
 
   sortProductionOrders(): Observable<ProductionOrderModel[]> {
