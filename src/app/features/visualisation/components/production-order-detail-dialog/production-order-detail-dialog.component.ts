@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { ProductionService } from 'src/app/core/services';
 import { ProductionOrderModel } from 'src/app/models';
 import { Observable } from 'rxjs';
@@ -25,14 +25,15 @@ export class ProductionOrderDetailDialogComponent implements OnInit {
     this.productionOrder$ = this._prodService.getProductionOrder(this.data.orderId);
   }
 
-  close(){
+  close() {
     this.dialogRef.close();
   }
 
-  getIcon(){
+  getIcon() {
     if (!this.selectedIcon) {
+
       this.selectedIcon = this.icons[Math.floor(Math.random() * this.icons.length)];
-    }  
+    }
     return this.selectedIcon;
   }
 }

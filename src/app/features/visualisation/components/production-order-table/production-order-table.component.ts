@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductionStatusModel } from 'src/app/models/production-status-model';
 import { ProductionOrderModel } from 'src/app/models';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatTableDataSource } from '@angular/material';
 import { ProductionOrderDetailDialogComponent } from '../production-order-detail-dialog/production-order-detail-dialog.component';
 
 @Component({
@@ -12,7 +12,9 @@ import { ProductionOrderDetailDialogComponent } from '../production-order-detail
 export class ProductionOrderTableComponent implements OnInit {
 
   @Input('data')
-  dataSource: any[];
+  set data(value: ProductionOrderModel[]) {
+    this.dataSource = new MatTableDataSource<ProductionOrderModel>(value);
+  }
 
   @Input('columns')
   displayedColumns: string[];
@@ -23,21 +25,29 @@ export class ProductionOrderTableComponent implements OnInit {
   @Input('showAll')
   showAll = false;
 
+  @Input('filter')
+  set filter(val: string) {
+    this.applyFilter(val);
+  }
+
   @Output('orderFinished')
   orderFinished = new EventEmitter<ProductionOrderModel>();
+
+  dataSource: MatTableDataSource<ProductionOrderModel>;
 
   constructor(
     private _dialogRef: MatDialog
   ) { }
 
   ngOnInit() {
+
   }
 
-  finished(order: ProductionOrderModel){
+  finished(order: ProductionOrderModel) {
     this.orderFinished.emit(order);
   }
 
-  openInformationDialog(element: ProductionOrderModel){
+  openInformationDialog(element: ProductionOrderModel) {
     let dialogRef = this._dialogRef.open(ProductionOrderDetailDialogComponent, {
       height: '70%',
       width: '70%',
@@ -45,5 +55,10 @@ export class ProductionOrderTableComponent implements OnInit {
         orderId: element.Id
       }
     });
+  }
+
+  applyFilter(value: string) {
+    console.log('Value:' + value)
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 }
