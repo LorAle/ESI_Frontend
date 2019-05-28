@@ -20,14 +20,14 @@ export class MawiService {
     return new HttpHeaders({ 'Content-Type': 'application/json' });
   }
 
-  supplyMaterial(data: { Typ: string, Menge: number }): Observable<any> {
-    return this._http.post<any>(this.baseUrl + `/order/supply`, JSON.stringify(data), {
+  supplyMaterial(type: string, amount: number): Observable<boolean> {
+    return this._http.post<boolean>(this.baseUrl + `/order/supply?type=${type}&amount=${amount}`, {
       headers: this.jsonHeader()
     });
   }
 
-  collectMaterial(data: { Material: string, Menge: number, Fertigungsauftrag: number, Auftragsnummer: number }): Observable<any> {
-    return this._http.post<any>(this.baseUrl + `/order/supply`, JSON.stringify(data), {
+  collectMaterial(data: { StockId: number, ProdcutionId: number, CustOrderId: number, Amount: number }): Observable<any> {
+    return this._http.post<any>(this.baseUrl + `/collectionOrder`, JSON.stringify(data), {
       headers: this.jsonHeader()
     });
   }
