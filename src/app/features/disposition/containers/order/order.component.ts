@@ -18,6 +18,8 @@ export class OrderComponent implements OnInit {
   countOfItems = new FormControl();
   //comment = new FormControl();
   material = new FormControl();
+  hidePopup: boolean;
+  popupContent: string;
 
   constructor(
     private _router: Router,
@@ -25,6 +27,8 @@ export class OrderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.hidePopup = true;
+    this.popupContent = "";
   }
 
   farbeBestellen(){
@@ -32,15 +36,26 @@ export class OrderComponent implements OnInit {
     var status_m = this._mawiService.supplyMaterial("magenta", this.countOfMagenta.value);
     var status_y = this._mawiService.supplyMaterial("yellow", this.countOfYellow.value);
     var status_k = this._mawiService.supplyMaterial("key", this.countOfKey.value);
-    alert("Bestellung: Cyan: "+this.countOfCyan.value+" Status: "+status_c+
+    this.fillPopup("Bestellung: Cyan: "+this.countOfCyan.value+" Status: "+status_c+
       ", Magenta: "+this.countOfMagenta.value+" Status: "+status_m+
       ", Yellow: "+this.countOfYellow.value+" Status: "+status_y+
       ", Key: "+this.countOfKey.value+" Status: "+status_k);
+    this.togglePopup();
   }
 
   materialBestellen(){
     var status = this._mawiService.supplyMaterial(this.material.value, this.countOfItems.value);
-    alert("Material: "+this.material.value+", Anzahl: "+this.countOfItems.value+", Status: "+status);
+    this.fillPopup("Material: "+this.material.value+", Anzahl: "+this.countOfItems.value+", Status: "+status);
+    this.togglePopup();
+  }
+
+  togglePopup(){
+    this.hidePopup = !this.hidePopup;
+    this.fillPopup("");
+  }
+
+  fillPopup(content: string){
+    this.popupContent = content;
   }
 
   navigate(route: string){

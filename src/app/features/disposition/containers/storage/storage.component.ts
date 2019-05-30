@@ -18,11 +18,19 @@ export class StorageComponent implements OnInit {
   countOfShirts = new FormControl();
   auftrag= new FormControl();
 
+  hidePopup: boolean;
+  popupContent: string;
+
 
   constructor(
     private _router: Router,
     private _mawiService: MawiService
   ) { }
+
+  ngOnInit() {
+    this.hidePopup = true;
+    this.popupContent = "";
+  }
 
   onSelectionChange(){
     console.log(this.getSelected());
@@ -52,9 +60,6 @@ export class StorageComponent implements OnInit {
     this.selectedValue = this.typesOfColors;
   }
 
-  ngOnInit() {
-  }
-
   farbeEinlagern(){
     var order = { 'StockId':0, 'ProdcutionId':0, 'CustOrderId':0, 'Amount':1}
     this.getSelected().forEach(element => {
@@ -76,18 +81,29 @@ export class StorageComponent implements OnInit {
           this._mawiService.collectMaterial(order);
         break;
       }
-      alert("Collect: "+order.StockId);
+      this.fillPopup("Collect: "+order.StockId);
+      this.togglePopup();
     });
   }
 
   tshirtsEinlagern(){
     var order = { 'StockId':Math.round(Math.random()*100000000), 'ProdcutionId':this.auftrag.value, 'CustOrderId':0, 'Amount':this.countOfShirts.value}
     this._mawiService.collectMaterial(order)
-    alert("Auftrag: "+order.ProdcutionId+", Anzahl: "+order.Amount+", StockId: "+order.StockId+", CustId: "+order.CustOrderId);
+    this.fillPopup("Auftrag: "+order.ProdcutionId+", Anzahl: "+order.Amount+", StockId: "+order.StockId+", CustId: "+order.CustOrderId);
+    this.togglePopup();
   }
 
   navigate(route: string){
     this._router.navigate([route]);
+  }
+
+  togglePopup(){
+    this.hidePopup = !this.hidePopup;
+    this.fillPopup("");
+  }
+
+  fillPopup(content: string){
+    this.popupContent = content;
   }
 
 }
