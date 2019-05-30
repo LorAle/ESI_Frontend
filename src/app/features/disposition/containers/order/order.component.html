@@ -1,4 +1,7 @@
 <mat-card>
+    <button mat-raised-button style="float: left; height: 40px; margin: 16px; background: rgba(220,220,220,0.5);" (click)="navigate('disposition/disposition')">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
     <mat-card-header>
         <mat-card-title>Bestellung</mat-card-title>
         <mat-card-subtitle>Hier können Sie die Bestellungen an die Materialwirtschaft übergeben</mat-card-subtitle>
@@ -50,9 +53,9 @@
                         <input matInput [formControl]="countOfItems" type="number" placeholder="Anzahl" value="">
                     </mat-form-field>
 
-                    <mat-form-field class="full-width">
+                    <!--<mat-form-field class="full-width">
                         <textarea matInput [formControl]="comment" placeholder="Bemerkung"></textarea>
-                    </mat-form-field>
+                    </mat-form-field>-->
                 </form>
             </mat-card-content>
             <mat-card-actions>
