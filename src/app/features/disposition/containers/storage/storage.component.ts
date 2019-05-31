@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
-import {MatSelectionList} from '@angular/material';
-import { FormControl} from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSelectionList } from '@angular/material';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MawiService } from 'src/app/core/services';
+import { MawiService, ProductionService } from 'src/app/core/services';
+import { ProductionOrderFormModel } from 'src/app/models';
 
 @Component({
   selector: 'esi-storage',
@@ -16,7 +17,7 @@ export class StorageComponent implements OnInit {
   selectedValue: any[];
   //comment = new FormControl();
   countOfShirts = new FormControl();
-  auftrag= new FormControl();
+  auftrag = new FormControl();
 
   hidePopup: boolean;
   popupContent: string;
@@ -24,7 +25,8 @@ export class StorageComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private _mawiService: MawiService
+    private _mawiService: MawiService,
+    private _prodService: ProductionService
   ) { }
 
   ngOnInit() {
@@ -32,7 +34,7 @@ export class StorageComponent implements OnInit {
     this.popupContent = "";
   }
 
-  onSelectionChange(){
+  onSelectionChange() {
     console.log(this.getSelected());
     console.log(this.getUnselected());
   }
@@ -44,7 +46,7 @@ export class StorageComponent implements OnInit {
   getUnselected() {
     const differ = [];
     const selected = this.getSelected();
-    for(let i = 0; i < this.typesOfColors.length; i ++) {
+    for (let i = 0; i < this.typesOfColors.length; i++) {
       if (selected.indexOf(this.typesOfColors[i]) === -1) {
         differ.push(this.typesOfColors[i])
       }
@@ -60,48 +62,53 @@ export class StorageComponent implements OnInit {
     this.selectedValue = this.typesOfColors;
   }
 
-  farbeEinlagern(){
-    var order = { 'StockId':0, 'ProdcutionId':0, 'CustOrderId':0, 'Amount':1}
+  farbeEinlagern() {
+    var order = { 'StockId': 0, 'ProdcutionId': 0, 'CustOrderId': 0, 'Amount': 1 }
     this.getSelected().forEach(element => {
-      switch(element){
+      switch (element) {
         case "Cyan":
           order.StockId = 1;
-          this._mawiService.collectMaterial(order);
-        break;
+          this._mawiService.collectMaterial(order).subscribe();
+          break;
         case "Magenta":
           order.StockId = 2;
-          this._mawiService.collectMaterial(order);
-        break;
+          this._mawiService.collectMaterial(order).subscribe();
+          break;
         case "Yellow":
           order.StockId = 3;
-          this._mawiService.collectMaterial(order);
-        break;
+          this._mawiService.collectMaterial(order).subscribe();
+          break;
         case "Key":
           order.StockId = 4;
-          this._mawiService.collectMaterial(order);
-        break;
+          this._mawiService.collectMaterial(order).subscribe();
+          break;
       }
-      this.fillPopup("Collect: "+order.StockId);
+      this.fillPopup("Collect: " + order.StockId);
       this.togglePopup();
     });
   }
 
-  tshirtsEinlagern(){
-    var order = { 'StockId':Math.round(Math.random()*100000000), 'ProdcutionId':this.auftrag.value, 'CustOrderId':0, 'Amount':this.countOfShirts.value}
-    this._mawiService.collectMaterial(order)
-    this.fillPopup("Auftrag: "+order.ProdcutionId+", Anzahl: "+order.Amount+", StockId: "+order.StockId+", CustId: "+order.CustOrderId);
-    this.togglePopup();
+  tshirtsEinlagern() {
+    this._prodService.getProductionOrder(this.auftrag.value).subscribe(x => {
+      x.ProductionStatusId = 3;
+      this._prodService.updateProductionOrder(x.Id, <ProductionOrderFormModel>{...x}).subscribe();
+      var order = { 'StockId': x.Id, 'ProdcutionId': x.Id, 'CustOrderId': x.CustomerOrderId, 'Amount': this.countOfShirts.value }
+      this._mawiService.collectMaterial(order).subscribe()
+      this.fillPopup("Auftrag: " + order.ProdcutionId + ", Anzahl: " + order.Amount + ", StockId: " + order.StockId + ", CustId: " + order.CustOrderId);
+      this.togglePopup();
+    });
+
   }
 
-  navigate(route: string){
+  navigate(route: string) {
     this._router.navigate([route]);
   }
 
-  togglePopup(){
+  togglePopup() {
     this.hidePopup = !this.hidePopup;
   }
 
-  fillPopup(content: string){
+  fillPopup(content: string) {
     this.popupContent = content;
   }
 

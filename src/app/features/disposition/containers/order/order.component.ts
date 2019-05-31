@@ -32,10 +32,10 @@ export class OrderComponent implements OnInit {
   }
 
   farbeBestellen(){
-    var status_c = this._mawiService.supplyMaterial("cyan", this.countOfCyan.value);
-    var status_m = this._mawiService.supplyMaterial("magenta", this.countOfMagenta.value);
-    var status_y = this._mawiService.supplyMaterial("yellow", this.countOfYellow.value);
-    var status_k = this._mawiService.supplyMaterial("key", this.countOfKey.value);
+    var status_c = this._mawiService.supplyMaterial("cyan", this.countOfCyan.value).subscribe();
+    var status_m = this._mawiService.supplyMaterial("magenta", this.countOfMagenta.value).subscribe();
+    var status_y = this._mawiService.supplyMaterial("yellow", this.countOfYellow.value).subscribe();
+    var status_k = this._mawiService.supplyMaterial("key", this.countOfKey.value).subscribe();
     this.fillPopup("Bestellung: Cyan: "+this.countOfCyan.value+" Status: "+status_c+
       ", Magenta: "+this.countOfMagenta.value+" Status: "+status_m+
       ", Yellow: "+this.countOfYellow.value+" Status: "+status_y+
@@ -44,7 +44,7 @@ export class OrderComponent implements OnInit {
   }
 
   materialBestellen(){
-    var status = this._mawiService.supplyMaterial(this.material.value, this.countOfItems.value);
+    var status = this._mawiService.supplyMaterial(this.material.value, this.countOfItems.value).subscribe();
     this.fillPopup("Material: "+this.material.value+", Anzahl: "+this.countOfItems.value+", Status: "+status);
     this.togglePopup();
   }
