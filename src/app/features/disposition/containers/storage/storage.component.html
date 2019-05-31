@@ -1,0 +1,75 @@
+<mat-card>
+    <button mat-raised-button style="float: left; height: 40px; margin: 16px; background: rgba(220,220,220,0.5);" (click)="navigate('disposition/disposition')">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <mat-card-header>
+        <mat-card-title>Einlagerung</mat-card-title>
+        <mat-card-subtitle>Hier können Sie die Einlagerung durch die Materialwirtschaft veranlassen</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card fxFlex="50%" class="child-card">
+            <mat-card-header>
+                <mat-card-title>Farbe einlagern</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h3>Farbe:</h3>
+                <button mat-raised-button color="secondary" class="change-button text-sm" (click)="selectAll()">
+                  Alle
+                </button>
+                <button mat-raised-button color="secondary" class="change-button text-sm" (click)="unSelectAll()">
+                    Keine
+                  </button>
+                <mat-selection-list [(ngModel)]="selectedValue" #colors (selectionChange)="onSelectionChange()">
+                    <mat-list-option *ngFor="let color of typesOfColors" [value]="color">
+                        {{color}}
+                    </mat-list-option>
+                </mat-selection-list>
+                <p>
+                    Colors selected: {{colors.selectedOptions.selected.length}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="farbeEinlagern()">Einlagern</button>
+            </mat-card-actions>
+        </mat-card>
+        <mat-card fxFlex="50%" class="child-card">
+            <mat-card-header>
+                <mat-card-title>Fertige T-Shirts einlagern</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form class="form">
+                    <mat-form-field class="form-number">
+                        <input matInput [formControl]="auftrag" placeholder="Auftragsnummer" value="">
+                    </mat-form-field>
+
+                    <mat-form-field class="form-count">
+                        <input matInput [formControl]="countOfShirts" type="number" placeholder="Anzahl" value="">
+                    </mat-form-field>
+
+                    <!--<mat-form-field class="full-width">
+                        <textarea matInput [formControl]="comment" placeholder="Bemerkung"></textarea>
+                    </mat-form-field>-->
+                </form>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="tshirtsEinlagern()">Einlagern</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-card-content>
+</mat-card>
+<mat-card id="popup" [hidden]="hidePopup">
+    <mat-card-content>
+        <mat-card id="inner_popup">
+            <mat-card-header>
+                <mat-card-title>Erfolgreiche Anfrage</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div style="padding:0px 8px 8px 8px;">Anfrage war erfolgreich!</div>
+                <div id="popup-content" style="padding: 8px; margin-bottom: 10px;">{{popupContent}}</div>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="togglePopup()">Schließen</button>
+                </mat-card-actions>
+            </mat-card-content>
+        </mat-card>
+    </mat-card-content>
+</mat-card>

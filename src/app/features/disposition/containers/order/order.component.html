@@ -1,0 +1,82 @@
+<mat-card>
+    <button mat-raised-button style="float: left; height: 40px; margin: 16px; background: rgba(220,220,220,0.5);" (click)="navigate('disposition/disposition')">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <mat-card-header>
+        <mat-card-title>Bestellung</mat-card-title>
+        <mat-card-subtitle>Hier können Sie die Bestellungen an die Materialwirtschaft übergeben</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card fxFlex="50%" class="child-card">
+            <mat-card-header>
+                <mat-card-title>Farbbestellung</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h3>Farbe:</h3>
+                <form class="form">
+                    <mat-form-field class="form-count">
+                        <mat-label class="label">Cyan: </mat-label>
+                        <input class="count" matInput [formControl]="countOfCyan" type="number" placeholder="Anzahl Cyan" value="0">
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="form-count">
+                        <mat-label class="label">Magenta: </mat-label>
+                        <input class="count" matInput [formControl]="countOfMagenta" type="number" placeholder="Anzahl Magenta" value="0">
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="form-count">
+                        <mat-label class="label">Yellow: </mat-label>
+                        <input class="count" matInput [formControl]="countOfYellow" type="number" placeholder="Anzahl Yellow" value="0">
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field class="form-count">
+                        <mat-label class="label">Key: </mat-label>
+                        <input class="count" matInput [formControl]="countOfKey" type="number" placeholder="Anzahl Key" value="0">
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="farbeBestellen()">Bestellen</button>
+            </mat-card-actions>
+        </mat-card>
+        <mat-card fxFlex="50%" class="child-card">
+            <mat-card-header>
+                <mat-card-title>Material bestellen</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form class="form">
+                    <mat-form-field class="form-number">
+                        <input matInput [formControl]="material" placeholder="Materialnummer" value="">
+                    </mat-form-field>
+
+                    <mat-form-field class="form-count">
+                        <input matInput [formControl]="countOfItems" type="number" placeholder="Anzahl" value="">
+                    </mat-form-field>
+
+                    <!--<mat-form-field class="full-width">
+                        <textarea matInput [formControl]="comment" placeholder="Bemerkung"></textarea>
+                    </mat-form-field>-->
+                </form>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="materialBestellen()">Bestellen</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-card-content>
+</mat-card>
+<mat-card id="popup" [hidden]="hidePopup">
+    <mat-card-content>
+        <mat-card id="inner_popup">
+            <mat-card-header>
+                <mat-card-title>Erfolgreiche Bestellung</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div style="padding:0px 8px 8px 8px;">Bestellung war erfolgreich!</div>
+                <div id="popup-content" style="padding: 8px; margin-bottom: 10px;">{{popupContent}}</div>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="togglePopup()">Schließen</button>
+                </mat-card-actions>
+            </mat-card-content>
+        </mat-card>
+    </mat-card-content>
+</mat-card>

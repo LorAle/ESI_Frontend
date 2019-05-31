@@ -1,0 +1,19 @@
+.outer-image{
+    background: url(../../../../../assets/icons/t-shirt.png);
+    background-size: cover;
+    -webkit-background-size: cover;
+    max-width: 220px;
+    max-height: 220px;
+    min-width: 220px;
+    min-height: 220px;
+    border: 5px outset lightgray;
+    border-radius: 50%
+}
+
+.inner-image{
+    z-index: 2;
+}
+
+.inner-image>mat-icon{
+    font-size: 60px !important;
+}
