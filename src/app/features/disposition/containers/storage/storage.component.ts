@@ -99,7 +99,6 @@ export class StorageComponent implements OnInit {
 
   togglePopup(){
     this.hidePopup = !this.hidePopup;
-    this.fillPopup("");
   }
 
   fillPopup(content: string){

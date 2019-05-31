@@ -51,7 +51,6 @@ export class OrderComponent implements OnInit {
 
   togglePopup(){
     this.hidePopup = !this.hidePopup;
-    this.fillPopup("");
   }
 
   fillPopup(content: string){
