@@ -63,29 +63,42 @@ export class StorageComponent implements OnInit {
   }
 
   farbeEinlagern() {
+    var feedback = "";
     var order = { 'StockId': 0, 'ProdcutionId': 0, 'CustOrderId': 0, 'Amount': 1 }
     this.getSelected().forEach(element => {
       switch (element) {
         case "Cyan":
           order.StockId = 1;
           this._mawiService.collectMaterial(order).subscribe();
+          if(feedback != "")
+            feedback = feedback.concat(", ");
+          feedback = feedback.concat("Cyan");
           break;
         case "Magenta":
           order.StockId = 2;
           this._mawiService.collectMaterial(order).subscribe();
+          if(feedback != "")
+            feedback = feedback.concat(", ");
+          feedback = feedback.concat("Magenta");
           break;
         case "Yellow":
           order.StockId = 3;
           this._mawiService.collectMaterial(order).subscribe();
+          if(feedback != "")
+            feedback = feedback.concat(", ");
+          feedback = feedback.concat("Yellow");
           break;
         case "Key":
           order.StockId = 4;
           this._mawiService.collectMaterial(order).subscribe();
+          if(feedback != "")
+            feedback = feedback.concat(", ");
+          feedback = feedback.concat("Key");
           break;
       }
-      this.fillPopup("Collect: " + order.StockId);
-      this.togglePopup();
     });
+    this.fillPopup("Collect: " + feedback);
+    this.togglePopup();
   }
 
   tshirtsEinlagern() {

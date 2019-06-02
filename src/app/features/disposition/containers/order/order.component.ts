@@ -32,20 +32,32 @@ export class OrderComponent implements OnInit {
   }
 
   farbeBestellen(){
-    var status_c = this._mawiService.supplyMaterial("cyan", this.countOfCyan.value).subscribe();
-    var status_m = this._mawiService.supplyMaterial("magenta", this.countOfMagenta.value).subscribe();
-    var status_y = this._mawiService.supplyMaterial("yellow", this.countOfYellow.value).subscribe();
-    var status_k = this._mawiService.supplyMaterial("key", this.countOfKey.value).subscribe();
-    this.fillPopup("Bestellung: Cyan: "+this.countOfCyan.value+" Status: "+status_c+
-      ", Magenta: "+this.countOfMagenta.value+" Status: "+status_m+
-      ", Yellow: "+this.countOfYellow.value+" Status: "+status_y+
-      ", Key: "+this.countOfKey.value+" Status: "+status_k);
-    this.togglePopup();
+    var feedback = "";
+    if(this.countOfCyan.value != null){
+      var status_c = this._mawiService.supplyMaterial("cyan", this.countOfCyan.value).subscribe();
+      feedback = feedback.concat("Cyan: "+this.countOfCyan.value);
+    }
+    if(this.countOfMagenta.value != null){
+      var status_m = this._mawiService.supplyMaterial("magenta", this.countOfMagenta.value).subscribe();
+      feedback = feedback.concat("\n, Magenta: "+this.countOfMagenta.value);
+    }
+    if(this.countOfYellow.value != null){
+      var status_y = this._mawiService.supplyMaterial("yellow", this.countOfYellow.value).subscribe();
+      feedback = feedback.concat("\n, Yellow: "+this.countOfYellow.value);
+    }
+    if(this.countOfKey.value != null){
+      var status_k = this._mawiService.supplyMaterial("key", this.countOfKey.value).subscribe();
+      feedback = feedback.concat("\n, Key: "+this.countOfKey.value);
+    }
+    if(feedback != ""){
+      this.fillPopup(feedback);
+      this.togglePopup();
+    }
   }
 
   materialBestellen(){
     var status = this._mawiService.supplyMaterial(this.material.value, this.countOfItems.value).subscribe();
-    this.fillPopup("Material: "+this.material.value+", Anzahl: "+this.countOfItems.value+", Status: "+status);
+    this.fillPopup("Material: "+this.material.value+", Anzahl: "+this.countOfItems.value);
     this.togglePopup();
   }
 
