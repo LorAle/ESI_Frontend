@@ -80,3 +80,19 @@
         </mat-card>
     </mat-card-content>
 </mat-card>
+<mat-card id="failedpopup" [hidden]="hideFailedPopup">
+        <mat-card-content>
+            <mat-card id="inner_popup">
+                <mat-card-header>
+                    <mat-card-title>Fehlgeschlagene Bestellung Bestellung</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div style="padding:0px 8px 8px 8px;">Die Bestellung war leider nicht erfolgreich!</div>
+                    <div id="popup-content" style="padding: 8px; margin-bottom: 10px;">{{popupContent}}</div>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" (click)="toggleFailedPopup()">Schließen</button>
+                    </mat-card-actions>
+                </mat-card-content>
+            </mat-card>
+        </mat-card-content>
+    </mat-card>

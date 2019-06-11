@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductionOrderModel, ProductionStatusModel, ProductionOrderFormModel } from 'src/app/models';
 import { PRODCUTION_ORDERS } from '../../mock-data/data';
 import { Observable, of } from 'rxjs';
-import { ProductionService } from 'src/app/core/services';
+import { ProductionService, VeveService } from 'src/app/core/services';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -18,20 +18,17 @@ export class ProductionMonitoringComponent implements OnInit {
   showAll = true;
 
   constructor(
-    private _prodService: ProductionService
+    private _prodService: ProductionService,
+    private _veveService: VeveService
   ) { }
 
   ngOnInit() {
-    // this.data = of(PRODCUTION_ORDERS.filter(x => x.ProductionStatusId === 1));
-    this.data = this._prodService.getProductionOrders().pipe(
-      map(x => x.filter(a => a.ProductionStatusId === 1))
-    );
+    this.data = this._prodService.getProductionOrders(2);
   }
 
   finished(order: ProductionOrderModel){
-    order.ProductionStatusId = 2;
-    this._prodService.updateProductionOrder(order.Id, <ProductionOrderFormModel>{...order}).subscribe();
-    this.ngOnInit();
+    this._prodService.updateProductionOrder(order.Id, <ProductionOrderFormModel>{...order, ProductionStatusId: 3}).subscribe(x => this.ngOnInit());
+    this._veveService.updateCustomerOrderStatus(order.CustomerOrderId).subscribe();
   }
 
 }

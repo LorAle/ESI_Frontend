@@ -3,7 +3,9 @@ import { MatSelectionList } from '@angular/material';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MawiService, ProductionService } from 'src/app/core/services';
-import { ProductionOrderFormModel } from 'src/app/models';
+import { ProductionOrderFormModel, ProductionOrderModel } from 'src/app/models';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'esi-storage',
@@ -18,8 +20,9 @@ export class StorageComponent implements OnInit {
   //comment = new FormControl();
   countOfShirts = new FormControl();
   auftrag = new FormControl();
-
+  orders$: Observable<ProductionOrderModel[]>;
   hidePopup: boolean;
+  hideFailedPopup: boolean;
   popupContent: string;
 
 
@@ -31,7 +34,14 @@ export class StorageComponent implements OnInit {
 
   ngOnInit() {
     this.hidePopup = true;
+    this.hideFailedPopup = true;
     this.popupContent = "";
+    this.orders$ = this._prodService.getProductionOrders(3);
+    this.orders$.subscribe(x => console.log(x))
+  }
+
+  fillAmount(amount: number) {
+    this.countOfShirts.setValue(amount);
   }
 
   onSelectionChange() {
@@ -64,34 +74,34 @@ export class StorageComponent implements OnInit {
 
   farbeEinlagern() {
     var feedback = "";
-    var order = { 'StockId': 0, 'ProdcutionId': 0, 'CustOrderId': 0, 'Amount': 1 }
+    var order = { 'StockId': 0, 'ProductionId': 0, 'CustOrderId': 0, 'Amount': 1 }
     this.getSelected().forEach(element => {
       switch (element) {
         case "Cyan":
           order.StockId = 1;
           this._mawiService.collectMaterial(order).subscribe();
-          if(feedback != "")
+          if (feedback != "")
             feedback = feedback.concat(", ");
           feedback = feedback.concat("Cyan");
           break;
         case "Magenta":
           order.StockId = 2;
           this._mawiService.collectMaterial(order).subscribe();
-          if(feedback != "")
+          if (feedback != "")
             feedback = feedback.concat(", ");
           feedback = feedback.concat("Magenta");
           break;
         case "Yellow":
           order.StockId = 3;
           this._mawiService.collectMaterial(order).subscribe();
-          if(feedback != "")
+          if (feedback != "")
             feedback = feedback.concat(", ");
           feedback = feedback.concat("Yellow");
           break;
         case "Key":
           order.StockId = 4;
           this._mawiService.collectMaterial(order).subscribe();
-          if(feedback != "")
+          if (feedback != "")
             feedback = feedback.concat(", ");
           feedback = feedback.concat("Key");
           break;
@@ -104,11 +114,14 @@ export class StorageComponent implements OnInit {
   tshirtsEinlagern() {
     this._prodService.getProductionOrder(this.auftrag.value).subscribe(x => {
       x.ProductionStatusId = 3;
-      this._prodService.updateProductionOrder(x.Id, <ProductionOrderFormModel>{...x}).subscribe();
-      var order = { 'StockId': x.Id, 'ProdcutionId': x.Id, 'CustOrderId': x.CustomerOrderId, 'Amount': this.countOfShirts.value }
-      this._mawiService.collectMaterial(order).subscribe()
-      this.fillPopup("Auftrag: " + order.ProdcutionId + ", Anzahl: " + order.Amount + ", StockId: " + order.StockId + ", CustId: " + order.CustOrderId);
-      this.togglePopup();
+      this._prodService.updateProductionOrder(x.Id, <ProductionOrderFormModel>{ ...x }).subscribe();
+      var order = { 'StockId': null, 'ProductionId': x.Id, 'CustOrderId': x.CustomerOrderId, 'Amount': this.countOfShirts.value }
+      this._mawiService.collectMaterial(order).subscribe(x => {
+        this.fillPopup("Auftrag: " + order.ProductionId + ", Anzahl: " + order.Amount + ", StockId: " + order.StockId + ", CustId: " + order.CustOrderId);
+        this.togglePopup();
+      }, error => {
+        this.toggleFailedPopup();
+      })
     });
 
   }
@@ -121,8 +134,13 @@ export class StorageComponent implements OnInit {
     this.hidePopup = !this.hidePopup;
   }
 
+  toggleFailedPopup() {
+    this.hideFailedPopup = !this.hideFailedPopup;
+  }
+
   fillPopup(content: string) {
     this.popupContent = content;
   }
+
 
 }

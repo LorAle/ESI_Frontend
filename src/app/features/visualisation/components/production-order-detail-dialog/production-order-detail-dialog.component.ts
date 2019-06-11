@@ -12,7 +12,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class ProductionOrderDetailDialogComponent implements OnInit {
 
   productionOrder$: Observable<ProductionOrderModel>;
-  icons = ['all_inbox', 'android', 'backup', 'bug_report', 'face', 'fingerprint']
+  icons = ['android', 'backup', 'bug_report', 'face', 'fingerprint']
   selectedIcon: string;
 
   constructor(

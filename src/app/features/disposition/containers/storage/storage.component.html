@@ -1,5 +1,6 @@
 <mat-card>
-    <button mat-raised-button style="float: left; height: 40px; margin: 16px; background: rgba(220,220,220,0.5);" (click)="navigate('disposition/disposition')">
+    <button mat-raised-button style="float: left; height: 40px; margin: 16px; background: rgba(220,220,220,0.5);"
+        (click)="navigate('disposition/disposition')">
         <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
     <mat-card-header>
@@ -14,11 +15,11 @@
             <mat-card-content>
                 <h3>Farbe:</h3>
                 <button mat-raised-button color="secondary" class="change-button text-sm" (click)="selectAll()">
-                  Alle
+                    Alle
                 </button>
                 <button mat-raised-button color="secondary" class="change-button text-sm" (click)="unSelectAll()">
                     Keine
-                  </button>
+                </button>
                 <mat-selection-list [(ngModel)]="selectedValue" #colors (selectionChange)="onSelectionChange()">
                     <mat-list-option *ngFor="let color of typesOfColors" [value]="color">
                         {{color}}
@@ -39,8 +40,18 @@
             <mat-card-content>
                 <form class="form">
                     <mat-form-field class="form-number">
-                        <input matInput [formControl]="auftrag" placeholder="Auftragsnummer" value="">
+                        <input matInput [formControl]="auftrag" placeholder="Auftragsnummer" value="" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let order of orders$ | async" [value]="order.Id" (click)=fillAmount(order.Amount)>
+                                <span fxLayout="row" fxLayoutAlign="start center">
+                                    <span [ngStyle]="{'margin-right': '10px'}">Id: {{ order.Id }}</span>
+                                    <div [ngStyle]="{'background-color': order.Color, 'height':'25px', 'width':'25px', 'margin-right':'10px'}"></div>
+                                    <span>Menge: {{order.Amount}}</span>
+                                </span>
+                            </mat-option>
+                        </mat-autocomplete>
                     </mat-form-field>
+
 
                     <mat-form-field class="form-count">
                         <input matInput [formControl]="countOfShirts" type="number" placeholder="Anzahl" value="">
@@ -73,3 +84,20 @@
         </mat-card>
     </mat-card-content>
 </mat-card>
+
+<mat-card id="failedpopup" [hidden]="hideFailedPopup">
+        <mat-card-content>
+            <mat-card id="inner_popup">
+                <mat-card-header>
+                    <mat-card-title>Fehlgeschlagene Anfrage</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div style="padding:0px 8px 8px 8px;">Die Anfrage war leider nichterfolgreich!</div>
+                    <div id="popup-content" style="padding: 8px; margin-bottom: 10px;">{{popupContent}}</div>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" (click)="toggleFailedPopup()">Schließen</button>
+                    </mat-card-actions>
+                </mat-card-content>
+            </mat-card>
+        </mat-card-content>
+    </mat-card>

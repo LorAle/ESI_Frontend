@@ -26,8 +26,8 @@ export class MawiService {
     });
   }
 
-  collectMaterial(data: { StockId: number, ProdcutionId: number, CustOrderId: number, Amount: number }): Observable<any> {
-    return this._http.post<any>(this.baseUrl + `/collectionOrder`, JSON.stringify(data), {
+  collectMaterial(data: { StockId: number, ProductionId: number, CustOrderId: number, Amount: number }): Observable<any> {
+    return this._http.post<any>(this.baseUrl + `/order/collect`, JSON.stringify(data), {
       headers: this.jsonHeader()
     });
   }

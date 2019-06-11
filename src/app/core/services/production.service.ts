@@ -23,18 +23,22 @@ export class ProductionService {
     return new HttpHeaders({ 'Content-Type': 'application/json' });
   }
 
-  getProductionOrders(): Observable<ProductionOrderModel[]> {
-    return this._http.get<ProductionOrderModel[]>(this.baseUrl);
+  getProductionOrders(statusId?: number): Observable<ProductionOrderModel[]> {
+    if (statusId !== null) {
+      return this._http.get<ProductionOrderModel[]>(this.baseUrl+`?statusId=${statusId}`);
+    } else {
+      return this._http.get<ProductionOrderModel[]>(this.baseUrl);
+    }
   }
 
   createProductionOrder(data: ProductionOrderFormModel): Observable<ProductionOrderModel> {
-    return this._http.post<ProductionOrderModel>(this.baseUrl, JSON.stringify(PRODCUTION_ORDERS[1]), {
+    return this._http.post<ProductionOrderModel>(this.baseUrl, JSON.stringify(data), {
       headers: this.jsonHeader()
     });
   }
 
   updateProductionOrder(orderId: number, data: ProductionOrderFormModel): Observable<boolean> {
-    return this._http.put<boolean>(this.baseUrl + `/${orderId}`, JSON.stringify(PRODCUTION_ORDERS[1]), {
+    return this._http.put<boolean>(this.baseUrl + `/${orderId}`, JSON.stringify(data), {
       headers: this.jsonHeader()
     });
   }

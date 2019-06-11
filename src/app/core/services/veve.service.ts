@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,13 @@ export class VeveService {
     this.baseUrl = environment.baseUrl + '/veve';
   }
 
-  jsonHeader(){
+  jsonHeader() {
     return new HttpHeaders({ 'Content-Type': 'application/json' });
+  }
+
+  updateCustomerOrderStatus(orderId: number): Observable<any> {
+    return this._http.put<any>(this.baseUrl + `/order/${orderId}/4`, {
+      headers: this.jsonHeader()
+    });
   }
 }
