@@ -3,6 +3,7 @@ import { ProductionOrderModel, ProductionStatusModel } from 'src/app/models';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { ProductionService } from 'src/app/core/services';
 import * as XLSX from 'xlsx';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'esi-production-order-overview',
@@ -11,7 +12,7 @@ import * as XLSX from 'xlsx';
 })
 export class ProductionOrderOverviewComponent implements OnInit {
 
-  @ViewChild('TABLE', {read: ElementRef}) table: ElementRef;
+  @ViewChild('TABLE', { read: ElementRef }) table: ElementRef;
 
   data: Observable<ProductionOrderModel[]>;
   displayedColumns: string[] = ['CustomerOrderId', 'OrderDate', 'DeliveryDate', 'Color', 'Amount', 'OrderItem', 'OrderPosition', 'ProductionStatusId', 'Actions'];
@@ -20,7 +21,7 @@ export class ProductionOrderOverviewComponent implements OnInit {
   status$: BehaviorSubject<ProductionStatusModel[]> = new BehaviorSubject<ProductionStatusModel[]>([]);
   showAll = false;
   filter$: BehaviorSubject<string> = new BehaviorSubject<string>('');
-
+  dataSource: MatTableDataSource<ProductionOrderModel>;
   constructor(
     private _prodService: ProductionService
   ) { }
@@ -36,6 +37,8 @@ export class ProductionOrderOverviewComponent implements OnInit {
     this.data = this._prodService.getProductionOrders();
     this._prodService.getProductionOrders().subscribe(x => console.log(x));
     this.endDate = new Date();
+
+    this.data.subscribe(x => this.dataSource = new MatTableDataSource<ProductionOrderModel>(x));
   }
 
   exportAsExcel() {
@@ -43,15 +46,12 @@ export class ProductionOrderOverviewComponent implements OnInit {
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Maschinenkonfiguration');
 
-    console.log(ws);
-    ws['!cols'][8] = { hidden: true };
-
     /* save to file */
     XLSX.writeFile(wb, 'Maschinenkonfiguration.xlsx');
 
   }
 
-  applyFilter(value: string){
+  applyFilter(value: string) {
     this.filter$.next(value);
   }
 
