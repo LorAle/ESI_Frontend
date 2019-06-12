@@ -31,4 +31,12 @@ export class MawiService {
       headers: this.jsonHeader()
     });
   }
+
+  getQualityValues(stockId: number): Observable<any[]> {
+    return this._http.get<any>(this.baseUrl + `/quality/${stockId}`);
+  }
+
+  getStocks(): Observable<any> {
+    return this._http.get<any>(this.baseUrl + `/stock`);
+  }
 }

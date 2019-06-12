@@ -16,7 +16,15 @@
             <mat-list-item><b [ngStyle]="{'min-width': '100px'}">Id: </b> <span [ngStyle]="{'min-width': '200px', 'text-align':'end'}">{{order.Id}}</span></mat-list-item>
             <mat-list-item><b [ngStyle]="{'min-width': '100px'}">Lieferdatum: </b> <span [ngStyle]="{'min-width': '200px', 'text-align':'end'}">{{order.DeliveryDate}}</span></mat-list-item>
             <mat-list-item><b [ngStyle]="{'min-width': '100px'}">Menge: </b> <span [ngStyle]="{'min-width': '200px', 'text-align':'end'}">{{order.Amount}}</span></mat-list-item>
-
+          </mat-list>
+        </div>
+        <div fxFlex *ngIf="qualityValues$ | async as quality">
+          <mat-list>
+            <mat-list-item><b [ngStyle]="{'min-width': '100px'}">Weißheitsgrad: </b> <span [ngStyle]="{'min-width': '200px', 'text-align':'end'}">{{quality[0].Whiteness}}</span></mat-list-item>
+            <mat-list-item><b [ngStyle]="{'min-width': '100px'}">Absorptionsfähigkeit: </b> <span [ngStyle]="{'min-width': '200px', 'text-align':'end'}">{{quality[0].Absorbency}}</span></mat-list-item>
+            <mat-list-item><b [ngStyle]="{'min-width': '100px'}">Viskosität: </b> <span [ngStyle]="{'min-width': '200px', 'text-align':'end'}">{{quality[0].Viscosity}}</span></mat-list-item>
+            <mat-list-item><b [ngStyle]="{'min-width': '100px'}">PPML: </b> <span [ngStyle]="{'min-width': '200px', 'text-align':'end'}">{{quality[0].Ppml}}</span></mat-list-item>
+            <mat-list-item><b [ngStyle]="{'min-width': '100px'}">DeltaE: </b> <span [ngStyle]="{'min-width': '200px', 'text-align':'end'}">{{quality[0].DeltaE}}</span></mat-list-item>
           </mat-list>
         </div>
       </div>
