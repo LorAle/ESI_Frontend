@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductionOrderModel, ProductionStatusModel } from 'src/app/models';
 import { PRODCUTION_ORDERS } from '../../mock-data/data';
-import { ProductionService } from 'src/app/core/services';
+import { ProductionService, VeveService } from 'src/app/core/services';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -16,7 +16,8 @@ export class OrderPlanningComponent implements OnInit {
   status$: Observable<ProductionStatusModel[]>;
 
   constructor(
-    private _prodService: ProductionService
+    private _prodService: ProductionService,
+    private _veveService: VeveService
   ) { }
 
   ngOnInit() {
@@ -27,6 +28,11 @@ export class OrderPlanningComponent implements OnInit {
     const deliveryDate = new Date();
     deliveryDate.setDate(deliveryDate.getDate() + 10)
     this.data = this._prodService.sortProductionOrders();
+    this.data.subscribe(x => {
+      x.forEach(order => {
+        this._veveService.updateCustomerOrderStatusToProduction(order.CustomerOrderId).subscribe();
+      })
+    })
     // this.data = of(PRODCUTION_ORDERS);
   }
 

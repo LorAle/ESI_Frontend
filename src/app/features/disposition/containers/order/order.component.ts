@@ -31,6 +31,8 @@ export class OrderComponent implements OnInit {
     this.hidePopup = true;
     this.hideFailedPopup = true;
     this.popupContent = "";
+    this.countOfItems.setValue(10);
+    this.material.setValue('Shirt weiß');
   }
 
   farbeBestellen() {

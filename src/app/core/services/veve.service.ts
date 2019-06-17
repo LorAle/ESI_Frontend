@@ -25,4 +25,10 @@ export class VeveService {
       headers: this.jsonHeader()
     });
   }
+
+  updateCustomerOrderStatusToProduction(orderId: number): Observable<any> {
+    return this._http.put<any>(this.baseUrl + `/order/${orderId}/3`, {
+      headers: this.jsonHeader()
+    });
+  }
 }
