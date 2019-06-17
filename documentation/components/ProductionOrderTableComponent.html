@@ -1,0 +1,1068 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>esi-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">esi-ui documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ProductionOrderTableComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/visualisation/components/production-order-table/production-order-table.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>esi-production-order-table</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./production-order-table.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./production-order-table.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dataSource">dataSource</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#applyFilter">applyFilter</a>
+                            </li>
+                            <li>
+                                <a href="#finished">finished</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openInformationDialog">openInformationDialog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#columns">columns</a>
+                            </li>
+                            <li>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                <a href="#filter">filter</a>
+                            </li>
+                            <li>
+                                <a href="#showAll">showAll</a>
+                            </li>
+                            <li>
+                                <a href="#status">status</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#orderFinished">orderFinished</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#data">data</a>
+                                </li>
+                                <li>
+                                    <a href="#filter">filter</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_dialogRef: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_dialogRef</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="columns"></a>
+                        <b>columns</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <b>data</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:15</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filter"></a>
+                        <b>filter</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:29</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showAll"></a>
+                        <b>showAll</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:26</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="status"></a>
+                        <b>status</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/ProductionStatusModel.html" target="_self" >ProductionStatusModel[]</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:23</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="orderFinished"></a>
+                        <b>orderFinished</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:34</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyFilter"></a>
+                    <span class="name">
+                        <b>
+                            applyFilter
+                        </b>
+                        <a href="#applyFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>applyFilter(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="finished"></a>
+                    <span class="name">
+                        <b>
+                            finished
+                        </b>
+                        <a href="#finished"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>finished(order: <a href="../classes/ProductionOrderModel.html">ProductionOrderModel</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>order</td>
+                                    <td>
+                                                <code><a href="../classes/ProductionOrderModel.html" target="_self" >ProductionOrderModel</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openInformationDialog"></a>
+                    <span class="name">
+                        <b>
+                            openInformationDialog
+                        </b>
+                        <a href="#openInformationDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openInformationDialog(element: <a href="../classes/ProductionOrderModel.html">ProductionOrderModel</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/ProductionOrderModel.html" target="_self" >ProductionOrderModel</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataSource"></a>
+                        <span class="name">
+                            <b>
+                            dataSource</b>
+                            <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/ProductionOrderModel.html" target="_self" >MatTableDataSource&lt;ProductionOrderModel&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <span class="name"><b>data</b><a href="#data"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>data(value: [])</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:15</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                        <code>[]</code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filter"></a>
+                        <span class="name"><b>filter</b><a href="#filter"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>filter(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/features/visualisation/components/production-order-table/production-order-table.component.ts:29</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>val</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { ProductionStatusModel } from &#x27;src/app/models/production-status-model&#x27;;
+import { ProductionOrderModel } from &#x27;src/app/models&#x27;;
+import { MatDialog, MatTableDataSource } from &#x27;@angular/material&#x27;;
+import { ProductionOrderDetailDialogComponent } from &#x27;../production-order-detail-dialog/production-order-detail-dialog.component&#x27;;
+
+@Component({
+  selector: &#x27;esi-production-order-table&#x27;,
+  templateUrl: &#x27;./production-order-table.component.html&#x27;,
+  styleUrls: [&#x27;./production-order-table.component.scss&#x27;]
+})
+export class ProductionOrderTableComponent implements OnInit {
+
+  @Input(&#x27;data&#x27;)
+  set data(value: ProductionOrderModel[]) {
+    this.dataSource &#x3D; new MatTableDataSource&lt;ProductionOrderModel&gt;(value);
+  }
+
+  @Input(&#x27;columns&#x27;)
+  displayedColumns: string[];
+
+  @Input(&#x27;status&#x27;)
+  orderStatus: ProductionStatusModel[];
+
+  @Input(&#x27;showAll&#x27;)
+  showAll &#x3D; false;
+
+  @Input(&#x27;filter&#x27;)
+  set filter(val: string) {
+    this.applyFilter(val);
+  }
+
+  @Output(&#x27;orderFinished&#x27;)
+  orderFinished &#x3D; new EventEmitter&lt;ProductionOrderModel&gt;();
+
+  dataSource: MatTableDataSource&lt;ProductionOrderModel&gt;;
+
+  constructor(
+    private _dialogRef: MatDialog
+  ) { }
+
+  ngOnInit() {
+
+  }
+
+  finished(order: ProductionOrderModel) {
+    this.orderFinished.emit(order);
+  }
+
+  openInformationDialog(element: ProductionOrderModel) {
+    let dialogRef &#x3D; this._dialogRef.open(ProductionOrderDetailDialogComponent, {
+      height: &#x27;70%&#x27;,
+      width: &#x27;70%&#x27;,
+      data: {
+        orderId: element.Id
+      }
+    });
+  }
+
+  applyFilter(value: string) {
+    console.log(&#x27;Value:&#x27; + value)
+    this.dataSource.filter &#x3D; value.trim().toLocaleLowerCase();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;table *ngIf&#x3D;&quot;dataSource; else noData&quot; mat-table [dataSource]&#x3D;&quot;dataSource&quot; class&#x3D;&quot;mat-elevation-z8&quot; #orderTable&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;CustomerOrderId&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Kundenauftragsnummer &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.CustomerOrderId}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;OrderDate&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Bestelldatum &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.OrderDate | date:&#x27;mediumDate&#x27;}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;DeliveryDate&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Lieferdatum &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.DeliveryDate | date:&#x27;mediumDate&#x27;}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;Color&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Farbe &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; 
+        &lt;div [ngStyle]&#x3D;&quot;{&#x27;background-color&#x27;: element.Color, &#x27;height&#x27;:&#x27;25px&#x27;, &#x27;width&#x27;:&#x27;25px&#x27;}&quot;&gt;&lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;Amount&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Menge &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.Amount}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;OrderItem&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Positionsnummer &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.OrderItem}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;OrderPosition&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Sortierungsnummer &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.OrderPosition}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;ProductionStatusId&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Status &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+      &lt;div *ngIf&#x3D;&quot;element.ProductionStatusId &#x3D;&#x3D;&#x3D; 1&quot; [ngStyle]&#x3D;&quot;{&#x27;background&#x27;: &#x27;gray&#x27;, &#x27;height&#x27;:&#x27;25px&#x27;, &#x27;width&#x27;:&#x27;25px&#x27;, &#x27;border-radius&#x27;:&#x27;50%&#x27;}&quot;&gt;&lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;element.ProductionStatusId &#x3D;&#x3D;&#x3D; 2&quot; [ngStyle]&#x3D;&quot;{&#x27;background&#x27;: &#x27;yellow&#x27;, &#x27;height&#x27;:&#x27;25px&#x27;, &#x27;width&#x27;:&#x27;25px&#x27;, &#x27;border-radius&#x27;:&#x27;50%&#x27;}&quot;&gt;&lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;element.ProductionStatusId &#x3D;&#x3D;&#x3D; 3&quot; [ngStyle]&#x3D;&quot;{&#x27;background&#x27;: &#x27;green&#x27;, &#x27;height&#x27;:&#x27;25px&#x27;, &#x27;width&#x27;:&#x27;25px&#x27;, &#x27;border-radius&#x27;:&#x27;50%&#x27;}&quot;&gt;&lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;Actions&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Aktionen &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+      &lt;button mat-icon-button matTooltip&#x3D;&quot;Als &#x27;Fertiggestellt&#x27; markieren&quot; (click)&#x3D;&quot;finished(element)&quot; *ngIf&#x3D;&quot;showAll &#x3D;&#x3D;&#x3D; true&quot;&gt;
+        &lt;mat-icon [ngStyle]&#x3D;&quot;{&#x27;color&#x27;: &#x27;green&#x27;}&quot;&gt;check_circle_outline&lt;/mat-icon&gt;
+      &lt;/button&gt;
+      &lt;button mat-icon-button matTooltip&#x3D;&quot;Weitere Informationen&quot; (click)&#x3D;&quot;openInformationDialog(element)&quot;&gt;
+        &lt;mat-icon&gt;
+            info
+        &lt;/mat-icon&gt;
+      &lt;/button&gt;
+    &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
+  &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;ng-template #noData&gt;
+  Keine Daten vorhanden...
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./production-order-table.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">table {
+    width: 100%;
+  }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><table *ngIf="dataSource; else noData" mat-table [dataSource]="dataSource" class="mat-elevation-z8" #orderTable>  <ng-container matColumnDef="CustomerOrderId">    <th mat-header-cell *matHeaderCellDef> Kundenauftragsnummer </th>    <td mat-cell *matCellDef="let element"> {{element.CustomerOrderId}} </td>  </ng-container>  <ng-container matColumnDef="OrderDate">    <th mat-header-cell *matHeaderCellDef> Bestelldatum </th>    <td mat-cell *matCellDef="let element"> {{element.OrderDate | date:\'mediumDate\'}} </td>  </ng-container>  <ng-container matColumnDef="DeliveryDate">    <th mat-header-cell *matHeaderCellDef> Lieferdatum </th>    <td mat-cell *matCellDef="let element"> {{element.DeliveryDate | date:\'mediumDate\'}} </td>  </ng-container>  <ng-container matColumnDef="Color">    <th mat-header-cell *matHeaderCellDef> Farbe </th>    <td mat-cell *matCellDef="let element">         <div [ngStyle]="{\'background-color\': element.Color, \'height\':\'25px\', \'width\':\'25px\'}"></div>    </td>  </ng-container>  <ng-container matColumnDef="Amount">    <th mat-header-cell *matHeaderCellDef> Menge </th>    <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>  </ng-container>  <ng-container matColumnDef="OrderItem">    <th mat-header-cell *matHeaderCellDef> Positionsnummer </th>    <td mat-cell *matCellDef="let element"> {{element.OrderItem}} </td>  </ng-container>  <ng-container matColumnDef="OrderPosition">    <th mat-header-cell *matHeaderCellDef> Sortierungsnummer </th>    <td mat-cell *matCellDef="let element"> {{element.OrderPosition}} </td>  </ng-container>  <ng-container matColumnDef="ProductionStatusId">    <th mat-header-cell *matHeaderCellDef> Status </th>    <td mat-cell *matCellDef="let element">      <div *ngIf="element.ProductionStatusId === 1" [ngStyle]="{\'background\': \'gray\', \'height\':\'25px\', \'width\':\'25px\', \'border-radius\':\'50%\'}"></div>      <div *ngIf="element.ProductionStatusId === 2" [ngStyle]="{\'background\': \'yellow\', \'height\':\'25px\', \'width\':\'25px\', \'border-radius\':\'50%\'}"></div>      <div *ngIf="element.ProductionStatusId === 3" [ngStyle]="{\'background\': \'green\', \'height\':\'25px\', \'width\':\'25px\', \'border-radius\':\'50%\'}"></div>    </td>  </ng-container>  <ng-container matColumnDef="Actions">    <th mat-header-cell *matHeaderCellDef> Aktionen </th>    <td mat-cell *matCellDef="let element">      <button mat-icon-button matTooltip="Als \'Fertiggestellt\' markieren" (click)="finished(element)" *ngIf="showAll === true">        <mat-icon [ngStyle]="{\'color\': \'green\'}">check_circle_outline</mat-icon>      </button>      <button mat-icon-button matTooltip="Weitere Informationen" (click)="openInformationDialog(element)">        <mat-icon>            info        </mat-icon>      </button>    </td>  </ng-container>  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr></table><ng-template #noData>  Keine Daten vorhanden...</ng-template></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'esi-root'},{'name': 'DispositionComponent', 'selector': 'esi-disposition'},{'name': 'HomeComponent', 'selector': 'esi-home'},{'name': 'KeyFiguresComponent', 'selector': 'esi-key-figures'},{'name': 'OrderComponent', 'selector': 'esi-order'},{'name': 'OrderPlanningComponent', 'selector': 'esi-order-planning'},{'name': 'PageNotFoundComponent', 'selector': 'esi-page-not-found'},{'name': 'ProductionMonitoringComponent', 'selector': 'esi-production-monitoring'},{'name': 'ProductionOrderDetailDialogComponent', 'selector': 'esi-production-order-detail-dialog'},{'name': 'ProductionOrderOverviewComponent', 'selector': 'esi-production-order-overview'},{'name': 'ProductionOrderTableComponent', 'selector': 'esi-production-order-table'},{'name': 'StorageComponent', 'selector': 'esi-storage'},{'name': 'UserProfileComponent', 'selector': 'esi-user-profile'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProductionOrderTableComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProductionOrderTableComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
